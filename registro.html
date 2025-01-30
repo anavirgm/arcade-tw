@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charSet="utf-8" />
+    <link rel="stylesheet" href="styles.css" data-precedence="next" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/images/cohete.ico" type="image/x-icon" sizes="any" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet" />
+</head>
+
+<body class="antialiased">
+    <div class="min-h-screen space-background relative overflow-hidden flex flex-col items-center justify-center p-8">
+        <div class="pixel-border absolute top-0 left-0 right-0">
+            <!-- TRIANGULOS DE ARRIBA -->
+            <div class="pixel-flame flame" style="animation-delay:0s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.1s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.2s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.3s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.4s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.5s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.6s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.7s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.8s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.9s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.1s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.2s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.3s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.4s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.5s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.6s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.7s"></div>
+        </div>
+        <div class="pixel-border absolute bottom-0 left-0 right-0">
+            <!-- TRIANGULOS DE ABAJO -->
+            <div class="pixel-flame flame" style="animation-delay:0s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.1s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.2s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.3s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.4s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.5s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.6s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.7s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.8s"></div>
+            <div class="pixel-flame flame" style="animation-delay:0.9s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.1s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.2s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.3s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.4s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.5s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.6s"></div>
+            <div class="pixel-flame flame" style="animation-delay:1.7s"></div>
+        </div>
+        
+        <!-- RETRO ARCADE -->
+        <a class="mb-8 text-2xl font-bold arcade-title flex items-center text-white" href="/">
+            <!-- DIBUJO CONTROL -->
+            <svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                <line x1="6" x2="10" y1="11" y2="11"></line>
+                <line x1="8" x2="8" y1="9" y2="13"></line>
+                <line x1="15" x2="15.01" y1="12" y2="12"></line>
+                <line x1="18" x2="18.01" y1="10" y2="10"></line>
+                <path
+                    d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z">
+                </path>
+            </svg>Retro Arcade
+        </a>
+
+        <!-- FORMULARIO -->
+        <div class="w-full max-w-md bg-black/80 p-8 rounded-lg border-2 border-purple-500">
+            <h2 class="text-3xl font-bold mb-6 text-center arcade-title text-white">Regístrate</h2>
+            <form class="space-y-4">
+                <!-- NOMBRE DE USUARIO -->
+                <div>
+                    <label
+                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-white"
+                        for="username">Nombre de usuario
+                    </label>
+                    <input type="text"
+                        class="flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-purple-900/50 text-white border-purple-500"
+                        id="username" required="" name="username" value="" />
+                </div>
+
+                <!--CORREO ELECTRONICO -->
+                <div>
+                    <label
+                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-white"
+                        for="email">Correo electrónico
+                    </label>
+                    
+                    <input type="email"
+                        class="flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-purple-900/50 text-white border-purple-500"
+                        id="email" required="" name="email" value="" />
+                    
+                </div>
+
+                <!-- CONTRASEÑA -->
+                <div>
+                    <label
+                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-white"
+                        for="password">Contraseña
+                    </label>
+                        <input type="password"
+                        class="flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-purple-900/50 text-white border-purple-500"
+                        id="password" required="" name="password" value="" />
+                </div>
+
+                <!-- CONFIRMAR CONTRASEÑA -->
+                <div>
+                    <label
+                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-white"
+                        for="confirmPassword">Confirmar contraseña</label>
+                        <input type="password"
+                        class="flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-purple-900/50 text-white border-purple-500"
+                        id="confirmPassword" required="" name="confirmPassword" value="" />
+                </div>
+                
+                <!-- BOTON REGISTRARSE -->
+                <button
+                    class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full start-button"
+                    type="submit">Registrarse
+                </button>
+            </form>
+
+            <!-- YA TIENES CUENTA? -->
+            <p class="mt-4 text-center text-sm text-purple-300">¿Ya tienes una cuenta?
+                <a
+                    class="text-purple-400 hover:text-purple-300 hover-glow" href="/login.html">Inicia sesión
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
