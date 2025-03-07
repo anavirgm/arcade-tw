@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charSet="utf-8" />
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="/styles.css" data-precedence="next" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/images/cohete.ico" type="image/x-icon" sizes="any" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet" />
 </head>
-
 <body class="antialiased">
     <div class="min-h-screen space-background relative overflow-hidden flex flex-col items-center justify-center p-8">
         <div class="pixel-border absolute top-0 left-0 right-0">
@@ -53,7 +51,7 @@
             <div class="pixel-flame flame" style="animation-delay:1.6s"></div>
             <div class="pixel-flame flame" style="animation-delay:1.7s"></div>
         </div>
-        
+
         <!-- RETRO ARCADE -->
         <a class="mb-8 text-2xl font-bold arcade-title flex items-center text-white" href="/">
             <!-- DIBUJO CONTROL -->
@@ -72,33 +70,111 @@
 
         <!-- RECUADRO --> 
         <div class="w-full max-w-4xl bg-black/80 p-8 rounded-lg border-2 border-yellow-500">
-
             <h2 class="text-3xl font-bold mb-6 text-center arcade-title text-yellow-400">Pac-Man</h2>
-
-            <!-- CANVA --> 
             <div class="aspect-video bg-black border-4 border-yellow-500 rounded-lg flex items-center justify-center">
-                <p class="text-yellow-400 text-2xl arcade-title">Juego de Pac-Man aquí</p>
+                <canvas width="560" height="620" class="border-4 border-blue-500" id="pacmanCanvas" aria-label="Juego de Pac-Man" role="img"></canvas>
             </div>
+            <div class="mt-6 flex justify-between items-center"><a
+                class="flex items-center text-white hover:text-yellow-400 transition-colors" href="/games"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-arrow-left mr-2">
+                    <path d="m12 19-7-7 7-7"></path>
+                    <path d="M19 12H5"></path>
+                </svg>Volver a la selección de juegos</a>
+                
+                <div class="text-yellow-400 text-xl">
+                    <span class="mr-4">Nivel: 1</span>
+                    <span class="mr-4">Vidas: 3</span>
+                    <span>Puntuación: <span id="score">0</span></span>
+                </div>
 
-            <!-- VOLVER --> 
-            <div class="mt-6 flex justify-between items-center">
-                <a class="flex items-center text-white hover:text-yellow-400 transition-colors" href="/games.html">
-                    
-                    <!-- IMAGEN FLECHA --> 
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="mr-2">
-                        <line x1="19" x2="5" y1="12" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>Volver a la selección de juegos
-                </a>
-
-                <!-- BOTON INICIAR --> 
-                <button class="start-button bg-yellow-500 text-black hover:bg-yellow-400">Iniciar Juego</button>
+                
+                <button class="start-button bg-yellow-500 text-black hover:bg-yellow-400" onclick="startGame()">Iniciar Juego</button>
             </div>
         </div>
     </div>
 </body>
+<script>
+    // Definir las variables globales fuera de DOMContentLoaded
+    let score = 0;
+    let pacManX = 14; // Posición inicial de Pac-Man
+    let pacManY = 14;
+    let pacManDirection = 'right';
 
+    const width = 28;
+    const height = 31;
+    const cellSize = 20; // Tamaño de cada celda en el laberinto
+    const layout = [
+        // (Aquí iría el layout de Pac-Man, como un array con 0s, 1s y 3s)
+    ];
+
+    // Definir el objeto pacMan globalmente
+    const pacMan = { x: pacManX, y: pacManY, direction: pacManDirection };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("pacmanCanvas");
+        const ctx = canvas.getContext("2d");
+        const scoreDisplay = document.getElementById("score");
+
+        function drawGrid() {
+            for (let i = 0; i < layout.length; i++) {
+                const x = (i % width) * cellSize;
+                const y = Math.floor(i / width) * cellSize;
+                switch (layout[i]) {
+                    case 1: ctx.fillStyle = "blue"; break; // Wall
+                    case 0: ctx.fillStyle = "black"; break; // Empty space
+                    case 3: ctx.fillStyle = "yellow"; break; // Dot
+                    default: ctx.fillStyle = "black";
+                }
+                ctx.fillRect(x, y, cellSize, cellSize);
+            }
+        }
+
+        function drawPacMan() {
+            ctx.beginPath();
+            ctx.arc(pacMan.x * cellSize + cellSize / 2, pacMan.y * cellSize + cellSize / 2, cellSize / 2, 0, Math.PI * 2);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+        }
+
+        function movePacMan() {
+            if (pacMan.direction === 'right') pacMan.x++;
+            if (pacMan.direction === 'left') pacMan.x--;
+            if (pacMan.direction === 'up') pacMan.y--;
+            if (pacMan.direction === 'down') pacMan.y++;
+            if (pacMan.x < 0) pacMan.x = width - 1;
+            if (pacMan.x >= width) pacMan.x = 0;
+            if (pacMan.y < 0) pacMan.y = height - 1;
+            if (pacMan.y >= height) pacMan.y = 0;
+        }
+
+        window.startGame = function startGame() {
+            if (document.querySelector('.start-button').disabled) return; // Evitar múltiples inicios
+            console.log("Juego iniciado");
+            document.querySelector('.start-button').disabled = true;  // Desactivar el botón de inicio
+            score = 0;
+            pacMan.x = 14;
+            pacMan.y = 14;
+            pacMan.direction = 'right';
+            gameLoop();
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid();
+            drawPacMan();
+            movePacMan();
+            scoreDisplay.textContent = score;
+            requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight") pacMan.direction = 'right';
+            if (e.key === "ArrowLeft") pacMan.direction = 'left';
+            if (e.key === "ArrowUp") pacMan.direction = 'up';
+            if (e.key === "ArrowDown") pacMan.direction = 'down';
+        });
+    });
+</script>
 </html>
