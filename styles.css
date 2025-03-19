@@ -1062,7 +1062,7 @@ video {
 
 .hover\:border-lemon-400:hover {
     --tw-border-opacity: 1;
-    border-color: rgb(19 24 69/var(--tw-border-opacity))
+    border-color: rgb(218 247 166 /var(--tw-border-opacity))
 }
 
 
@@ -1114,6 +1114,16 @@ video {
 .hover\:text-yellow-400:hover {
     --tw-text-opacity: 1;
     color: rgb(250 204 21/var(--tw-text-opacity))
+}
+
+.hover\:text-orange-400:hover {
+    --tw-text-opacity: 1;
+    color: rgb(255 87 51/var(--tw-text-opacity))
+}
+
+.hover\:text-lemon-400:hover {
+    --tw-text-opacity: 1;
+    color: rgb(218 247 166 /var(--tw-text-opacity))
 }
 
 .hover\:underline:hover {
