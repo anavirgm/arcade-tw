@@ -9,6 +9,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet" />
 </head>
 
+<style>
+    .image-position {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .top-left {
+            top: 20%;
+            left: 10%;
+        }
+
+        .top-right {
+            top: 20%;
+            right: 10%;
+        }
+
+        .bottom-left {
+            bottom: 20%;
+            left: 10%;
+        }
+
+        .bottom-right {
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .image-position img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .video-position {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            border: 2px solid red;
+        }
+
+        .video-position video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+</style>
+
 <body class="antialiased">
     <div class="min-h-screen space-background relative">
         <div class="relative overflow-hidden flex flex-col items-center justify-center p-8 min-h-screen">
@@ -62,6 +107,22 @@
             </div>
             <div class="text-center z-10 space-y-12">
                 <h1 class="pixel-text text-4xl md:text-6xl text-white mb-8 tracking-wider">RETRO<br />ARCADE</h1>
+
+                <!-- Cuadros para imágenes/GIFs 
+                    <video autoplay loop muted class="image-position top-left">
+                        <source src="/images/a4ece2a39a624759ae6b30f719db6e2d.webm" type="video/webm">
+                        Tu navegador no soporta el formato de video.
+                    </video>
+                -->
+                <div class="image-container">
+                    <img src="/images/pacman.gif" alt="Imagen 2" class="image-position top-left">
+                    <img src="imagen2.gif" alt="Imagen 2" class="image-position top-right">
+                    <img src="imagen3.gif" alt="Imagen 3" class="image-position bottom-left">
+                    <img src="imagen4.gif" alt="Imagen 4" class="image-position bottom-right">
+                </div>
+
+
+                
                 <div class="relative w-full max-w-2xl mx-auto">
                     <!-- CUADRADO Y TRIANGULO DE LA DERECHA -->
                     <div class="absolute left-0 float" style="animation-delay:0.5s">

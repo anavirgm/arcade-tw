@@ -985,11 +985,43 @@ video {
 }
 
 .pixel-heart {
+    width: 32px; /* Aumenté directamente el tamaño del contenedor */
+    height: 32px;
+    background-color: #ff69b4;
+    clip-path: path('M16 7c-3.5-6-13.3-4.2-13.3 3.2 0 4.8 5.8 9.9 12.3 16 .2.2.6.3.9.3s.7-.1.9-.3c6.5-6.1 12.3-11.2 12.3-16C29.3 2.8 19.5 1 16 7z');
+}
+/*
+
+transform: scale(2); Aumenta al doble de tamaño 
+transform-origin: center;
+
+.pixel-heart {
+    width: 32px;
+    height: 32px;
+    background-color: #ff69b4;
+    clip-path: polygon(
+        12% 20%, 25% 0%, 38% 20%, 
+        62% 20%, 75% 0%, 88% 20%, 
+        100% 35%, 100% 60%, 
+        50% 100%, 0 60%, 0 35%
+    );
+}
+
+.pixel-heart {
     width: 20px;
     height: 20px;
     background-color: #ff69b4;
     clip-path: polygon(50% 0, 100% 35%, 100% 70%, 50% 100%, 0 70%, 0 35%)
 }
+
+Corazon normal
+.pixel-heart {
+    width: 32px;
+    height: 32px;
+    background-color: #ff69b4;
+    clip-path: path('m12 5.72c-2.624-4.517-10-3.198-10 2.461 0 3.725 4.345 7.727 9.303 12.54.194.189.446.283.697.283s.503-.094.697-.283c4.977-4.831 9.303-8.814 9.303-12.54 0-5.678-7.396-6.944-10-2.461z');
+}
+*/
 
 .pixel-spaceship {
     width: 60px;
@@ -1252,7 +1284,7 @@ video {
     }
 
     .md\:text-6xl {
-        font-size: 3.75rem;
+        font-size: 4.75rem;
         line-height: 1
     }
 }
