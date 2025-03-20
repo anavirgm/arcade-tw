@@ -7,6 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/images/cohete.ico" type="image/x-icon" sizes="any" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet" />
+    <style>
+        @keyframes wipe-in-left {
+            from {
+                clip-path: inset(0 0 0 100%);
+            }
+            to {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        [transition-style="in:wipe:left"] {
+            animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+        }
+
+        .game-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .game-card .description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .game-card:hover .description {
+            opacity: 1;
+            animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+        }
+    </style>
 </head>
 
 <body class="antialiased">
@@ -77,53 +117,53 @@
 
             <div class="grid grid-cols-2 gap-4">
                 <!-- PACMAN -->
-                <a href="games/pacman.html">
-                    <div
-                        class="p-4 border-2 border-yellow-500 rounded-lg text-center hover:bg-yellow-500/20 transition-colors cursor-pointer">
+                <a href="games/pacman.html" class="game-card">
+                    <div class="p-4 border-2 border-yellow-500 rounded-lg text-center hover:bg-yellow-500/20 transition-colors">
                         <h3 class="text-xl font-bold mb-2 arcade-title text-yellow-400">Pac-Man</h3>
                         <p class="text-white">Jugar ahora</p>
+                        <div class="description">¡Come los puntos y esquiva a los fantasmas!</div>
                     </div>
                 </a>
                 <!-- SPACE INVADERS -->
-                <a href="/games/space-invaders.html">
-                    <div
-                        class="p-4 border-2 border-green-500 rounded-lg text-center hover:bg-green-500/20 transition-colors cursor-pointer">
+                <a href="/games/space-invaders.html" class="game-card">
+                    <div class="p-4 border-2 border-green-500 rounded-lg text-center hover:bg-green-500/20 transition-colors">
                         <h3 class="text-xl font-bold mb-2 arcade-title text-green-400">Space Invaders</h3>
                         <p class="text-white">Jugar ahora</p>
+                        <div class="description">¡Defiende la Tierra de la invasión alienígena!</div>
                     </div>
                 </a>
                 <!-- DONKEY KONG -->
-                <a href="/games/donkey-kong.html">
-                    <div
-                        class="p-4 border-2 border-red-500 rounded-lg text-center hover:bg-red-500/20 transition-colors cursor-pointer">
+                <a href="/games/donkey-kong.html" class="game-card">
+                    <div class="p-4 border-2 border-red-500 rounded-lg text-center hover:bg-red-500/20 transition-colors">
                         <h3 class="text-xl font-bold mb-2 arcade-title text-red-400">Donkey Kong</h3>
                         <p class="text-white">Jugar ahora</p>
+                        <div class="description">¡Rescata a la princesa de Donkey Kong!</div>
                     </div>
                 </a>
                 <!-- GALAGA -->
-                <a href="/games/galaga.html">
-                    <div
-                        class="p-4 border-2 border-blue-500 rounded-lg text-center hover:bg-blue-500/20 transition-colors cursor-pointer">
+                <a href="/games/galaga.html" class="game-card">
+                    <div class="p-4 border-2 border-blue-500 rounded-lg text-center hover:bg-blue-500/20 transition-colors">
                         <h3 class="text-xl font-bold mb-2 arcade-title text-blue-400">MARIO BROS</h3>
                         <p class="text-white">Jugar ahora</p>
+                        <div class="description">¡Salva el Reino Champiñón con Mario y Luigi!</div>
                     </div>
                 </a>
 
 
 
-                <a href="/games/bomberman.html">
-                    <div
-                        class="p-4 border-2 border-lemon-500 rounded-lg text-center hover:bg-lemon-400/20 transition-colors cursor-pointer">
-                        <h3 class="text-xl font-bold mb-2 arcade-title text-lemon-400">BOMBERMAN</h3>
+                <a href="games/bomberman.html" class="game-card">
+                    <div class="p-4 border-2 border-lemon-500 rounded-lg text-center hover:bg-lemon-500/20 transition-colors">
+                        <h3 class="text-xl font-bold mb-2 arcade-title text-lemon-400">Bomberman</h3>
                         <p class="text-white">Jugar ahora</p>
+                        <div class="description">¡Coloca bombas y derrota a tus enemigos!</div>
                     </div>
                 </a>
                 <!-- RICK -->
-                <a href="/games/rick.html">
-                    <div
-                        class="p-4 border-2 border-orange-500 rounded-lg text-center hover:bg-orange-500/20 transition-colors cursor-pointer">
+                <a href="/games/rick.html" class="game-card">
+                    <div class="p-4 border-2 border-orange-500 rounded-lg text-center hover:bg-orange-500/20 transition-colors">
                         <h3 class="text-xl font-bold mb-2 arcade-title text-orange-400">RICK DANGEROUS</h3>
                         <p class="text-white">Jugar ahora</p>
+                        <div class="description">¡Explora ruinas y escapa de las trampas!</div>
                     </div>
                 </a>
 
