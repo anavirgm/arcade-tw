@@ -16,8 +16,14 @@
             height: 200px;
         }
 
+        .image-position-donkey {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+        }
+
         .top-left {
-            top: 20%;
+            top: 15%;
             left: 10%;
         }
 
@@ -109,16 +115,17 @@
                 <h1 class="pixel-text text-4xl md:text-6xl text-white mb-8 tracking-wider">RETRO<br />ARCADE</h1>
 
                 <!-- Cuadros para imágenes/GIFs 
+                 <img src="/images/pacman.gif" alt="Imagen 2" class="image-position top-left">
+                    
+                -->
+                <div class="image-container">
                     <video autoplay loop muted class="image-position top-left">
                         <source src="/images/a4ece2a39a624759ae6b30f719db6e2d.webm" type="video/webm">
                         Tu navegador no soporta el formato de video.
                     </video>
-                -->
-                <div class="image-container">
-                    <img src="/images/pacman.gif" alt="Imagen 2" class="image-position top-left">
-                    <img src="imagen2.gif" alt="Imagen 2" class="image-position top-right">
-                    <img src="imagen3.gif" alt="Imagen 3" class="image-position bottom-left">
-                    <img src="imagen4.gif" alt="Imagen 4" class="image-position bottom-right">
+                    <img src="/images/spaceship-spaceships.gif" alt="Imagen 2" class="image-position top-right">
+                    <img src="/images/mario.gif" alt="Imagen 3" class="image-position bottom-left">
+                    <img src="/images/donkey.gif" alt="Imagen 4" class="image-position-donkey bottom-right">
                 </div>
 
 
