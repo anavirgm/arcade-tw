@@ -63,6 +63,40 @@
     font-size: 3rem;
     line-height: 2.25rem;
 }
+
+@keyframes border-light {
+        0% {
+            border-color: transparent;
+        }
+        50% {
+            border-color: #ff00ff; /* Color de la luz */
+        }
+        100% {
+            border-color: transparent;
+        }
+    }
+
+    .border-2 {
+        position: relative;
+        border-width: 2px;
+        border-style: solid;
+        animation: border-light 1.5s infinite; /* Aplica la animación con un ciclo infinito */
+    }
+
+    /* Para darle un efecto de luz más suave, puedes usar un "glow" en lugar de un borde sólido */
+    .border-2::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 2px solid transparent;
+        background: linear-gradient(45deg, rgba(255, 0, 255, 0.5), rgba(255, 0, 255, 0));
+        z-index: -1;
+        animation: border-light 1.5s infinite; /* Agrega la animación de borde a este pseudo-elemento */
+        border-radius: 8px; /* Para que coincida con el borde redondeado de los cuadros */
+    }
 </style>
 
 <body class="antialiased">
@@ -158,61 +192,82 @@
         </div>
 
         <!-- SECCION DE HIGH SCORES -->
-        <section class="relative bg-black/80 py-20">
-            <div class="container mx-auto px-4">
-                <h2 class="pixel-text text-3xl text-center text-white mb-12">HIGH SCORES</h2>
-                <p class="pixel-text text-xl text-center text-white mb-8">Los clásicos nunca mueren. Revive la emoción de los récords legendarios.</p>
-                
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all"
-                        style="animation-delay:0s">
-                        <!-- PACMAN -->
-                        <h3 class="pixel-text text-lg mb-4">Pac-Man</h3>
-                        <div class="space-y-2 text-sm">
-                            <p class="flex justify-between"><span>Player:</span><span
-                                    class="text-purple-400">Ana Mota</span></p>
-                            <p class="flex justify-between"><span>High Score:</span><span
-                                    class="text-purple-400">99,999</span></p>
-                        </div>
-                    </div>
-                    <!-- SPCACE INVADERS -->
-                    <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all"
-                        style="animation-delay:0.2s">
-                        <h3 class="pixel-text text-lg mb-4">Space Invaders</h3>
-                        <div class="space-y-2 text-sm">
-                            <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Jesús Apolinar</span>
-                            </p>
-                            <p class="flex justify-between"><span>High Score:</span><span
-                                    class="text-purple-400">88,888</span></p>
-                        </div>
-                    </div>
-                    <!-- DONKEY KONG -->
-                    <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all"
-                        style="animation-delay:0.4s">
-                        <h3 class="pixel-text text-lg mb-4">Donkey Kong</h3>
-                        <div class="space-y-2 text-sm">
-                            <p class="flex justify-between"><span>Player:</span><span
-                                    class="text-purple-400">Isabel Diaz</span></p>
-                            <p class="flex justify-between"><span>High Score:</span><span
-                                    class="text-purple-400">77,777</span></p>
-
-                        </div>
-                    </div>
-                    <!-- GALAGA -->
-                    <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all"
-                        style="animation-delay:0.6000000000000001s">
-                        <h3 class="pixel-text text-lg mb-4">Bomberman</h3>
-                        <div class="space-y-2 text-sm">
-                            <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Antonio Villalobos</span>
-                            </p>
-                            <p class="flex justify-between"><span>High Score:</span><span
-                                    class="text-purple-400">66,666</span></p>
-                        </div>
-                    </div>
+<!-- SECCION DE HIGH SCORES -->
+<section class="relative bg-black/80 py-20">
+    <div class="container mx-auto px-4">
+        <h2 class="pixel-text text-3xl text-center text-white mb-12">HIGH SCORES</h2>
+        <p class="pixel-text text-xl text-center text-white mb-8">Los clásicos nunca mueren. Revive la emoción de los récords legendarios.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="high-scores-container">
+            <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all" style="animation-delay:0s">
+                <!-- PACMAN -->
+                <h3 class="pixel-text text-lg mb-4">Pac-Man</h3>
+                <div class="space-y-2 text-sm">
+                    <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Ana Mota</span></p>
+                    <p class="flex justify-between"><span>High Score:</span><span class="text-purple-400">99,999</span></p>
                 </div>
             </div>
-        </section>
+            <!-- SPACE INVADERS -->
+            <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all" style="animation-delay:0.2s">
+                <h3 class="pixel-text text-lg mb-4">Space Invaders</h3>
+                <div class="space-y-2 text-sm">
+                    <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Jesús Apolinar</span></p>
+                    <p class="flex justify-between"><span>High Score:</span><span class="text-purple-400">88,888</span></p>
+                </div>
+            </div>
+            <!-- DONKEY KONG -->
+            <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all" style="animation-delay:0.4s">
+                <h3 class="pixel-text text-lg mb-4">Donkey Kong</h3>
+                <div class="space-y-2 text-sm">
+                    <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Isabel Diaz</span></p>
+                    <p class="flex justify-between"><span>High Score:</span><span class="text-purple-400">77,777</span></p>
+                </div>
+            </div>
+            <!-- BOMBERMAN -->
+            <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all" style="animation-delay:0.6s">
+                <h3 class="pixel-text text-lg mb-4">Bomberman</h3>
+                <div class="space-y-2 text-sm">
+                    <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Antonio Villalobos</span></p>
+                    <p class="flex justify-between"><span>High Score:</span><span class="text-purple-400">66,666</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón Ver más centrado -->
+        <div class="flex justify-center mt-8">
+            <button class="start-button text-white pulse" onclick="mostrarMas()">Ver más</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function mostrarMas() {
+        const contenedor = document.getElementById("high-scores-container");
+
+        // Crear los nuevos cuadros
+        const nuevosCuadros = `
+            <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all" style="animation-delay:0.8s">
+                <h3 class="pixel-text text-lg mb-4">Pac-Man 2</h3>
+                <div class="space-y-2 text-sm">
+                    <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Luis Pérez</span></p>
+                    <p class="flex justify-between"><span>High Score:</span><span class="text-purple-400">55,555</span></p>
+                </div>
+            </div>
+            <div class="border-2 border-purple-500 bg-black p-6 rounded-lg text-white hover:border-purple-400 transition-all" style="animation-delay:1s">
+                <h3 class="pixel-text text-lg mb-4">Space Invaders 2</h3>
+                <div class="space-y-2 text-sm">
+                    <p class="flex justify-between"><span>Player:</span><span class="text-purple-400">Carlos Rodríguez</span></p>
+                    <p class="flex justify-between"><span>High Score:</span><span class="text-purple-400">44,444</span></p>
+                </div>
+            </div>
+        `;
+
+        // Insertar los nuevos cuadros en el contenedor
+        contenedor.innerHTML += nuevosCuadros;
+    }
+</script>
+
+
 
         <!-- SECCION DE CARACTERISTICAS -->
         <section class="relative bg-purple-900/20 py-20">
