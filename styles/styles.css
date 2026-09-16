@@ -1,0 +1,87 @@
+.image-position {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .image-position-donkey {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+        }
+
+        .top-left {
+            top: 15%;
+            left: 10%;
+        }
+
+        .top-right {
+            top: 20%;
+            right: 10%;
+        }
+
+        .bottom-left {
+            bottom: 20%;
+            left: 10%;
+        }
+
+        .bottom-right {
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .image-position img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .video-position {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            border: 2px solid red;
+        }
+
+        .video-position video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .text-3xl {
+    font-size: 3rem;
+    line-height: 2.25rem;
+}
+
+@keyframes border-light {
+        0% {
+            border-color: transparent;
+        }
+        50% {
+            border-color: #ff00ff; /* Color de la luz */
+        }
+        100% {
+            border-color: transparent;
+        }
+    }
+
+    .border-2 {
+        position: relative;
+        border-width: 2px;
+        border-style: solid;
+        animation: border-light 1.5s infinite; /* Aplica la animación con un ciclo infinito */
+    }
+
+    /* Para darle un efecto de luz más suave, puedes usar un "glow" en lugar de un borde sólido */
+    .border-2::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 2px solid transparent;
+        background: linear-gradient(45deg, rgba(255, 0, 255, 0.5), rgba(255, 0, 255, 0));
+        z-index: -1;
+        animation: border-light 1.5s infinite; /* Agrega la animación de borde a este pseudo-elemento */
+        border-radius: 8px; /* Para que coincida con el borde redondeado de los cuadros */
+    }
